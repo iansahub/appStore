@@ -1,0 +1,36 @@
+.input-sizer {
+  display: inline-grid;
+  vertical-align: top;
+  align-items: center;
+  position: relative;
+  border: solid 1px;
+  
+  &.stacked {
+    align-items: stretch;
+    
+    &::after,
+    input {
+      grid-area: 2 / 1;
+    }
+  }
+  
+  &::after,
+  input {
+    width: auto;
+    min-width: 1em;
+    grid-area: 1 / 2;
+    font: inherit;
+    margin: 0;
+    resize: none;
+    background: none;
+    appearance: none;
+    border: none;
+  }
+    
+  &::after {
+    content: attr(data-value) ' ';
+    visibility: hidden;
+    white-space: pre-wrap;
+  }
+
+}

@@ -1,0 +1,374 @@
+	/*-----------------------Message Bubble Styles------------------------------------*/
+		input:invalid ~ .msgBubble{display:block !important} //show if error
+		input:valid ~ .msgBubble{display:none !important} //but hide if no error
+		
+		input ~ .msgBubble:empty{display:none !important}  //hide if the text of the error is empty
+
+		input ~ .msgBubble:not(:empty){display:block !important}  //override hide if the text of the error is not empty
+		
+		input:not([data-infomsg=""]) ~ .msgBubble{display:block !important}  //override hide if theres an info message
+		
+		input:focus ~ .msgBubble{visibility:visible !important} 
+
+		.msgBubble{
+			align-self:center;
+			animation-fill-mode: forwards, forwards;
+			animation-duration:0.25s, 0.1s;
+			animation-delay:0.22s,0.48s;
+			visibility:visible;
+			margin-left: 10px;
+		}
+		.reduceMsgBubbleToLine{
+			animation-name: reduceMsgBubbleToLine, popBubble;
+
+		}
+		
+		.instantlyPopBubble{
+			visibility:hidden;
+		}
+		
+		
+
+		.bubble{
+			/*includes callouts and body*/
+			position:relative;
+			left:-10px;
+			font-family:arial;
+			font-size:14px;
+			color:rgb(60 60 60);
+			height:0px;
+			overflow:visible;
+			-webkit-user-select:none;
+			-ms-user-select:none;
+			user-select: none;
+			animation-fill-mode: forwards;
+			animation-duration:0.25s;
+			animation-delay:0.22s;
+			
+		}
+		.reduceBubbleToLine{
+			animation-name: reduceBubbleToLine;
+		}
+
+
+		.bubbleBody{
+			display:inline-block;
+			box-shadow: 5px 5px 3px 0px rgba(200,200,200,0.9);
+			border:1px solid  gray;
+			border-radius:4px;
+			position:relative;
+			top:8px;
+			padding:calc(0.6em + 2.5px) 0.5em calc(0.6em + 1.5px) 0.5em;
+			background-color:white;
+			animation-fill-mode: forwards;
+			animation-duration:0.25s;
+			animation-delay:0.22s;
+			
+		}
+		.reduceBubbleBodyToLine{
+			animation-name: reduceBubbleBodyToLine;
+		}
+
+
+
+		.bubbleBodyPt1{
+			display:inline-block;
+			text-align:left;
+			line-height:1.5em
+		}
+		.bubbleBodyPt2{
+			display:inline-block;
+			text-align:center;
+			line-height:1.5em;
+			margin-right:0.5em;
+			color:white;
+			font-weight:900;
+			width:1.5em;
+			height:1.5em;
+			vertical-align:top;
+		}
+
+		.bubbleContent{ 
+		  _display: inline-block;
+		}
+
+		.grayBubbleCallout{
+			margin-top:-9px;
+			position:absolute;
+			top:1px;
+			
+			border:8px solid rgba(255,255,255,0);
+			border-top:none;
+			border-bottom:8px solid gray;
+			width:0px;
+			height:0px;
+			animation-fill-mode: forwards;
+			animation-duration:0.22s;
+			animation-delay:0s;
+		}
+		.grayBubbleCallout.rtl{
+			_right: 1em;
+		}
+		.grayBubbleCallout.ltr{
+			_left: 1em;
+		}
+
+		.reduceGrayBubbleCalloutToLine{
+			/*add this class to .grayBubbleCallout to animate it */
+			animation-name: reduceGrayBubbleCalloutToLine;
+		}
+
+
+		.whiteBubbleCallout{
+			margin-top:-8px;
+			position:absolute;
+
+			top:1px;
+			border:8px solid rgba(255,255,255,0);
+			border-top:none;
+			border-bottom:8px solid white;
+			width:0px;
+			height:0px;
+			animation-fill-mode: forwards;
+			animation-duration:0.22s;
+			animation-delay:0s;
+		}
+		.whiteBubbleCallout.rtl{
+			_right: 1em;
+		}
+		.whiteBubbleCallout.ltr{
+			_left: 1em;
+		}
+		.reduceWhiteBubbleCalloutToLine{
+			/*add this class to .whiteBubbleCallout to animate it */
+			animation-name: reduceWhiteBubbleCalloutToLine;
+		}
+
+		.msgBubbleIcon{
+			width:22px;
+			height:22px;
+			margin-right:0.5em;
+			float:left;
+			position:relative;
+			animation-fill-mode: forwards;
+			animation-duration:0.25s;
+			animation-delay:0.22s;
+		}
+		
+		
+		
+		.reducemsgBubbleIconToLine{
+			/*add this class to .msgBubbleIcon to animate it */
+			animation-name: reducemsgBubbleIconToLine;
+		}
+
+		.makeVisible{
+			animation-name: makeVisible;
+		}
+
+		@keyframes makeVisible{
+			from{	
+				visibility:hidden;
+			}
+			to{
+				visibility:visible;
+			}
+			
+		}
+
+		@keyframes reduceBubbleToLine {
+			from{	
+				font-size:14px;
+				color:rgb(60 60 60);
+			}
+			to{
+				font-size:10px;
+				color:red;
+				visibility:hidden;
+			}
+		}
+		@keyframes popBubble{
+			from{
+				visibility:visible;	
+			}
+			to{
+				visibility:hidden;
+			}
+		}
+
+
+		@keyframes reduceBubbleBodyToLine {
+			from{
+				top:8px;
+				padding:1em 1em;
+				box-shadow: 5px 5px 3px 0px rgba(200,200,200,0.9);
+				border:1px solid  gray;
+				border-radius:4px;
+			}
+			to{
+				top:3px; 
+				padding:0em 0em;
+				box-shadow: 0px 0px 0px 0px rgba(200,200,200,0.9);
+				border:0px solid  gray;
+				border-radius:0px;
+			}
+		}
+
+		@keyframes reduceGrayBubbleCalloutToLine {
+			from{
+				top:-9px;
+				border:8px solid rgba(255,255,255,0);
+				border-bottom:8px solid gray;
+			}
+			to{
+				top:0px;
+				border:8px solid rgba(255,255,255,0);
+				border-bottom:0px solid gray;
+
+			}
+		}
+
+
+		@keyframes reduceWhiteBubbleCalloutToLine {
+			from{
+				top:-8px;
+				border:8px solid rgba(255,255,255,0);
+				border-bottom:8px solid white;
+			}
+			to{
+				top:0px;
+				border:8px solid rgba(255,255,255,0);
+				border-bottom:0px solid white;
+
+			}
+		}
+
+		@keyframes reduceMsgBubbleToLine {
+			from{
+				margin-left:30%;
+			}
+			to{
+				margin-left:15px;
+				width:100%
+			}
+		}
+
+
+		@keyframes reducemsgBubbleIconToLine{
+			from{
+			}
+			to{
+				height:11px;
+				width:11px;
+			}
+		}
+	/*-----------------------End of Error Bubble Styles---------------------------------*/
+	
+	
+	
+	/*-----------------------SVG Icon Styles------------------------------------------------*/
+	.toolbarIconWrapper {position:relative;height:100%;width:20%;background-color:transparent;border:none;}
+	.toolbarIconWrapper:focus{outline:none}
+	.svgIcon{position:absolute;top:0;left:0;height:100%;width:100%;}/*parent needs position:relative or other position.*/
+	.outlinedIcon{fill:black;stroke:white;stroke-width:10px;stroke-linejoin:round;}	
+	/*-----------------------End of SVG Icon Styles---------------------------------*/	
+
+.clearRow{ font-size:0px; margin:0px; padding:0px; height:0px; width:100%; clear:both;line-height:0px; }	
+
+.mod-dos-uk-colour__input {
+    z-index: 1;
+    width: 88px;
+    height: 88px;
+    margin: 0 1em 0 0;
+    opacity: 100;
+    cursor: pointer;
+	padding: 0;
+	float: left;
+}
+.mod-dos-uk-colour__label, .mod-dos-uk-colour__hint{
+    align-self: center;
+    max-width: calc(100% - 1em);
+    margin-bottom: 0;
+    padding: 7px 15px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.govuk-form-group{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 20px;
+	padding-right: 0px;
+	border-left: none;
+	border-right: none;
+}
+
+.govuk-form-group--error{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 15px;
+	padding-right: 0px;
+	border-left: 5px solid #d4351c;
+	border-right: none;
+	
+}
+
+
+.govuk-form-group.en-Arab{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 20px;
+	border-left: none;
+	border-right: none;
+}
+
+.govuk-form-group--error.en-Arab{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 15px;
+    border-left: none;
+    border-right: 5px solid #d4351c;
+}
+
+/* ----------------  tagcloud component --------------- */
+
+.tagCloud{
+	border: 2px solid #0b0c0c;
+	overflow-y: auto; 
+	display: block;
+	overflow: auto; 
+	width:auto; 
+	list-style-type: none; 
+	padding: 0.5em 0 0 5px;
+	min-height: 2.5rem;
+}
+
+.tagCloud:focus-within{
+    outline: 3px solid #fd0;
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 2px;
+	border-color: #80bdff;
+}
+
+.tagCloud-tag{
+	 padding: 0; 
+	 border-radius: 5px;
+	 float:left;
+	 margin-right:1em;
+	 margin-bottom:0.5em;
+}
+
+.tagCloud-tag-label{
+	padding-left:0.5em
+}
+
+.tagDeleteButton{
+	background-color:transparent;
+	border:0;
+	margin-left:0.5em; 
+	user-select: none;
+}
+				
+/* ---------------- end of tagcloud component --------------- */
