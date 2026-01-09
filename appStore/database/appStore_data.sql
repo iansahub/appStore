@@ -1,6 +1,3 @@
-ngTaskID`, `publishStatus`, `organization`, `protocol`, `devDomain`, `testDomain`, `prodDomain`, `appRoot`, `homePage`, `legalAndPolicyLink`, `secureAnAccountLink`, `allowNewRFC`, `allowNewRFI`, `allowNewIncident`, `newRFCLink`, `newRFILink`, `newIncidentLink`, `adminEmail`, `otherDigitalSMEs`) VALUES
-(1, 'klogin', 'klogin', 'K Login System', 'KLogin is a free-to-use username and password system common across many web apps so that one set of login credentials will secure them all.', 'KLogin is a free-to-use username and password system common across many web apps so that one set of login credentials will secure them all.\r\n\r\nprotected with HTTPS and BCRYPT encryption, the system has been designed to be secure, and simple for both users and app developers.-- phpMyAdmin SQL Dump
--- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
@@ -8,6 +5,7 @@ ngTaskID`, `publishStatus`, `organization`, `protocol`, `devDomain`, `testDomain
 -- Server version: 5.7.30-log
 -- PHP Version: 7.2.28
 
+USE `appstore`;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
