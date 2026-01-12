@@ -8,7 +8,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./app:/var/www/html
+      - ./appStore:/var/www/html
     depends_on:
       - db
 
